@@ -44,6 +44,7 @@ export function Home() {
 
   const porcent = useMemo(() => {
     const count = meals.length;
+    if (!count) return 0;
 
     const countOnDiet = meals.filter((x) => x.isOnDiet).length;
     const value = (countOnDiet / count) * 100;

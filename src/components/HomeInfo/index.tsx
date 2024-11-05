@@ -1,33 +1,16 @@
 import React from "react";
-import { Container, IconAbsolute, PressableAnimated } from "./styles";
+import { Container, IconAbsolute } from "./styles";
 import { TitleG } from "../TitleG";
 import { BodyS } from "../BodyS";
-import { SharedTransition, withSpring } from "react-native-reanimated";
+import { PressableProps } from "react-native";
 
-type PressableAnimatedType = typeof PressableAnimated;
-
-type Props = PressableAnimatedType & {
+type Props = PressableProps & {
   porcent: number;
 };
 
-const customTransition = SharedTransition.custom((values) => {
-  "worklet";
-  return {
-    height: withSpring(values.targetHeight),
-    width: withSpring(values.targetWidth),
-    originX: withSpring(values.targetOriginX),
-    originY: withSpring(values.targetOriginY),
-  };
-});
-
 export function HomeInfo({ porcent, ...rest }: Props) {
   return (
-    <Container
-      positiveColor={porcent >= 50}
-      {...rest}
-      sharedTransitionTag="tag"
-      sharedTransitionStyle={customTransition}
-    >
+    <Container positiveColor={porcent >= 50} {...rest}>
       <TitleG>{`${porcent.toFixed(2)}%`}</TitleG>
       <BodyS>das refeições dentro da dieta</BodyS>
       <IconAbsolute />

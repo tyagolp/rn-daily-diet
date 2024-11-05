@@ -24,6 +24,7 @@ export function ListItem({ data }: Props) {
       <Divider />
       <Description numberOfLines={1}>{data.title}</Description>
       <Circle
+        color={data.isOnDiet ? theme.COLORS.GREEN_MID : theme.COLORS.RED_MID}
         fill={data.isOnDiet ? theme.COLORS.GREEN_MID : theme.COLORS.RED_MID}
       />
     </Container>
