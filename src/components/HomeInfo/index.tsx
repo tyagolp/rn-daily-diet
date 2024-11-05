@@ -1,30 +1,36 @@
 import React from "react";
-import {
-  ContainerNegative,
-  ContainerPositive,
-  Description,
-  IconAbsolute,
-  Title,
-} from "./styles";
+import { Container, IconAbsolute, PressableAnimated } from "./styles";
+import { TitleG } from "../TitleG";
+import { BodyS } from "../BodyS";
+import { SharedTransition, withSpring } from "react-native-reanimated";
 
-type Props = {
+type PressableAnimatedType = typeof PressableAnimated;
+
+type Props = PressableAnimatedType & {
   porcent: number;
 };
-export function HomeInfo({ porcent }: Props) {
-  if (porcent < 50)
-    return (
-      <ContainerNegative>
-        <Title>{porcent}%</Title>
-        <Description>das refeições dentro da dieta</Description>
-        <IconAbsolute />
-      </ContainerNegative>
-    );
 
+const customTransition = SharedTransition.custom((values) => {
+  "worklet";
+  return {
+    height: withSpring(values.targetHeight),
+    width: withSpring(values.targetWidth),
+    originX: withSpring(values.targetOriginX),
+    originY: withSpring(values.targetOriginY),
+  };
+});
+
+export function HomeInfo({ porcent, ...rest }: Props) {
   return (
-    <ContainerPositive>
-      <Title>{porcent}%</Title>
-      <Description>das refeições dentro da dieta</Description>
+    <Container
+      positiveColor={porcent >= 50}
+      {...rest}
+      sharedTransitionTag="tag"
+      sharedTransitionStyle={customTransition}
+    >
+      <TitleG>{`${porcent.toFixed(2)}%`}</TitleG>
+      <BodyS>das refeições dentro da dieta</BodyS>
       <IconAbsolute />
-    </ContainerPositive>
+    </Container>
   );
 }

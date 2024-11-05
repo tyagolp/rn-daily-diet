@@ -13,7 +13,7 @@ export const Logo = styled.Image`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  color: ${(x) => x.theme.COLORS.GREY_1};
+  color: ${(x) => x.theme.COLORS.GRAY1};
   width: 82px;
   height: 37px;
 `;

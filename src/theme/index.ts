@@ -2,13 +2,13 @@ export const theme = {
   COLORS: {
     WHITE: "#FFFFFF",
 
-    GREY_1: "#1B1D1E",
-    GREY_2: "#333638",
-    GREY_3: "#5C6265",
-    GREY_4: "#B9BBBC",
-    GREY_5: "#DDDEDF",
-    GREY_6: "#EFF0F0",
-    GREY_7: "#FAFAFA",
+    GRAY1: "#1B1D1E",
+    GRAY2: "#333638",
+    GRAY3: "#5C6265",
+    GRAY4: "#B9BBBC",
+    GRAY5: "#DDDEDF",
+    GRAY6: "#EFF0F0",
+    GRAY7: "#FAFAFA",
 
     RED_DARK: "#BF3B44",
     RED_MID: "#F3BABD",
